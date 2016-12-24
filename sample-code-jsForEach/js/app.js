@@ -4,11 +4,11 @@ $(document).ready(function(){
 
   // select a template script, and pull out the handlebars and html inside it
   var source = $('#developer-li-template').html();
-  console.log('template script source:', source);
+  // console.log('template script source:', source);
 
   // compile the handlebars template
   var template = Handlebars.compile(source);
-  console.log(template);
+  // console.log(template);
 
   // use the template function from handlebars to create an HTML string
   // the template function takes in an object where:
@@ -19,9 +19,15 @@ $(document).ready(function(){
       first_name: developer.first_name,
       last_name: developer.last_name
      });
-    console.log('generated html string:', developerHtml);
+    // console.log('generated html string:', developerHtml);
 
     // append html to the view
     $("#developers-list").append(developerHtml);
   });
+
+  var sourceClassNumber = $('#developer-class-template').html();
+  var templateClassNumber = Handlebars.compile(sourceClassNumber);
+
+  console.log('cohort is ' + data.cohort);
+  var devClassNumber = template({class_number: data.cohort})
 });
